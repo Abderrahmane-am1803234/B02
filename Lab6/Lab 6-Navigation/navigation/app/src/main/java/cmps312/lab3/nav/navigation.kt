@@ -16,61 +16,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.*
 import kotlinx.coroutines.launch
-
-@Composable
-fun Main(){
-    val scaffoldState = rememberScaffoldState()
-
-    //Create a coroutine scope. Opening of Drawer and snackbar should happen in background thread without blocking main thread
-    val coroutineScope = rememberCoroutineScope()
-
-    //remember navController so it does not get recreated on recomposition
-    val navController = rememberNavController()
-    Scaffold(
-        //pass the scaffold state
-        scaffoldState = scaffoldState,
-
-        bottomBar = { BottomNavigation {
-            //observe the backstack
-            //val navBackStackEntry by navController.currentBackStackEntryAsState()
-
-            //observe current route to change the icon color,label color when navigated
-            //  val currentRoute = navBackStackEntry?.destination?.route
-            val navBackStackEntry by navController.currentBackStackEntryAsState()
-            val currentDestination = navBackStackEntry?.destination
-            val navItems = listOf(Screen.MainScreen, Screen.FundTransferScreen, Screen.DetailScreen)
-
-            //Bottom nav items we declared
-            navItems.forEach { navItem ->
-                BottomNavigationItem(
-                    //it currentRoute is equal then its selected route
-                    selected = currentDestination?.hierarchy?.any { it.route == navItem.route } == true,
-                    onClick = {
-                        navController.navigate(navItem.route)
-                    },
-                    icon = {
-                        Icon(imageVector = navItem.icon, contentDescription = navItem.title)
-                    },
-                    label = {
-                        Text(text = navItem.title)
-                    },
-                    alwaysShowLabel = false
-                )
-            }
-        } },
-
-    ) {
-        //MainScreen()
-            paddingValues -> Navigation(navController = navController, padding = paddingValues)
-    }
-}
+//}
 
 
 
 
 @Composable
-fun Navigation(navController: NavHostController,
-               padding: PaddingValues){
+fun Navigation(){
 
     val navController = rememberNavController()
 
