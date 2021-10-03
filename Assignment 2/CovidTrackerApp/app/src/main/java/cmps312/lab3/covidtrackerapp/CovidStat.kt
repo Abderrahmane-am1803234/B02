@@ -8,7 +8,7 @@ data class CovidStat(
 
     var country: String,
     var totalDeaths: Int,
-    var totalRecovered: Int,
-    var activeCases: Int,
-    var population: Int,
+    var totalRecovered:Int,
+    var activeCases:Int,
+    var population: Double,
 )

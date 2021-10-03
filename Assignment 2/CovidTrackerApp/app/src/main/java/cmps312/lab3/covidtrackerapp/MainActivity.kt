@@ -17,7 +17,8 @@ class MainActivity : ComponentActivity() {
             CovidTrackerAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
+                   // Greeting("Android")
+                    //covidStatScreen()
                 }
             }
         }

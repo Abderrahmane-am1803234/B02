@@ -12,11 +12,13 @@ object CovidStatRepository {
 
 
     fun initCovidStat(context: Context):List<CovidStat>{
-        if ( covidStats.isEmpty()){
+
+       // Use 'ignoreUnknownKeys = true' in 'Json {}' builder to ignore unknown keys.
+     if ( covidStats.isEmpty()){
             val covidStatJson =
                 context.assets.open("covid-data.json")
                     .bufferedReader().use { it.readText() }
-             covidStats = Json.decodeFromString( covidStatJson)
+             covidStats = Json { ignoreUnknownKeys=true }.decodeFromString(covidStatJson)
 
         }
 
