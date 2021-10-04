@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import cmps312.lab3.bankingapplicationmvvm.Screen
-import cmps312.lab3.bankingapplicationmvvm.views.BankingViewModel
+import cmps312.lab3.bankingapplicationmvvm.model.BankingViewModel
 
 @Composable
 fun TransferConfirmation(navHostController: NavHostController, bankingViewModel: BankingViewModel) {
@@ -23,6 +23,18 @@ fun TransferConfirmation(navHostController: NavHostController, bankingViewModel:
             verticalArrangement = Arrangement.SpaceEvenly,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
+            bankingViewModel.apply {
+                Text(text = "From Account Number:${newTransfer.fromAccountNo}")
+                Text(text = "Amount Transfer ${newTransfer.amount}")
+                Text(text = "Benefiary Account Number:${newTransfer.beneficiaryAccountNo}")
+                Text(text = "Benefiary Name: ${newTransfer.beneficiaryName} ")
+            }
+            Button(onClick = { bankingViewModel.addTransfer
+                navHostController.navigate(Screen.Home.route)
+
+            }) {
+
+            }
 
 
         }

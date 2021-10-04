@@ -16,11 +16,26 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import cmps312.lab3.bankingapplicationmvvm.Screen
+import cmps312.lab3.bankingapplicationmvvm.model.BankingViewModel
 import cmps312.lab3.bankingapplicationmvvm.model.Beneficiary
-import cmps312.lab3.bankingapplicationmvvm.views.BankingViewModel
 
 @Composable
 fun Beneficiary(navHostController: NavHostController, bankingViewModel: BankingViewModel) {
+    LazyColumn{
+        items(bankingViewModel.beneficiaries){
+            beneficiary->
+            BeneficiaryCard(beneficiary = beneficiary
+
+            ,onSelectedBeneficiary = {
+                bankingViewModel.apply {
+                    newTransfer.beneficiaryAccountNo =beneficiary.accountNo
+
+                }
+                    navHostController.navigate(Screen.Confirmation.route)
+                })
+
+        }
+    }
 
 }
 

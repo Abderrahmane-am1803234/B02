@@ -14,8 +14,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import cmps312.lab3.bankingapplicationmvvm.Screen
+import cmps312.lab3.bankingapplicationmvvm.model.BankingViewModel
 import cmps312.lab3.bankingapplicationmvvm.model.Transfer
-import cmps312.lab3.bankingapplicationmvvm.views.BankingViewModel
 
 //Todo implement the list of transfers , when the user clicks on a transfer navigate them to the detail screen that shows the complete transfer list
 @Composable
@@ -34,20 +34,30 @@ fun Home(navHostController: NavHostController, bankingViewModel: BankingViewMode
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
+            val transfers = bankingViewModel.transfers.value
+            LazyColumn{
+                items(transfers){
+                    transfer ->
+                    TransferCar(transfer = transfer)
+
+
+
+                }
+            }
 
         }
     }
 }
 
 @Composable
-fun TransferCar(transfer: Transfer, onTransferSelected: () -> Unit) {
+fun TransferCar(transfer: Transfer){ //onTransferSelected: () -> Unit) {
     Card(elevation = 10.dp,
         backgroundColor = Color.LightGray,
         modifier = Modifier
             .padding(10.dp)) {
         Row(modifier = Modifier
-            .padding(15.dp)
-            .clickable { onTransferSelected() },
+            .padding(15.dp),
+         //   .clickable { onTransferSelected() },
             verticalAlignment = Alignment.CenterVertically) {
             Icon(imageVector = Screen.Beneficiary.icon, contentDescription = "Person Image")
             Column(modifier = Modifier.weight(3f)) {

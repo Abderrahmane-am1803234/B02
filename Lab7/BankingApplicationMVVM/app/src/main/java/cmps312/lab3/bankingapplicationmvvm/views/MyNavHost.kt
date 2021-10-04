@@ -6,8 +6,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import cmps312.lab3.bankingapplicationmvvm.Screen
+import cmps312.lab3.bankingapplicationmvvm.model.BankingViewModel
 import cmps312.lab3.bankingapplicationmvvm.views.detail.AccountDetails
-import cmps312.lab3.bankingapplicationmvvm.views.detail.TransferDetails
+//import cmps312.lab3.bankingapplicationmvvm.views.detail.TransferDetails
 import cmps312.lab3.bankingapplicationmvvm.views.fundtransfer.Beneficiary
 import cmps312.lab3.bankingapplicationmvvm.views.fundtransfer.FundTransfer
 import cmps312.lab3.bankingapplicationmvvm.views.fundtransfer.TransferConfirmation
@@ -21,6 +22,6 @@ fun MyNavHost(navHostController: NavHostController, bankViewModel: BankingViewMo
         composable(route = Screen.FundTransfer.route) { FundTransfer(navHostController, bankViewModel) }
         composable(route = Screen.Beneficiary.route) { Beneficiary(navHostController, bankViewModel) }
         composable(route = Screen.Confirmation.route) { TransferConfirmation(navHostController, bankViewModel) }
-        composable(route = Screen.TransferDetails.route) { TransferDetails(navHostController, bankViewModel) }
+       // composable(route = Screen.TransferDetails.route) { TransferDetails(navHostController, bankViewModel) }
     }
 }

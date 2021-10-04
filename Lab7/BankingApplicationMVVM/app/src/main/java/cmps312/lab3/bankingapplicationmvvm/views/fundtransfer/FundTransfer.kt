@@ -14,8 +14,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import cmps312.lab3.bankingapplicationmvvm.Screen
+import cmps312.lab3.bankingapplicationmvvm.model.BankingViewModel
 import cmps312.lab3.bankingapplicationmvvm.model.Transfer
-import cmps312.lab3.bankingapplicationmvvm.views.BankingViewModel
 
 @Composable
 fun FundTransfer(navHostController: NavHostController, bankViewModel: BankingViewModel) {

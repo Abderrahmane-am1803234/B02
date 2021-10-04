@@ -10,5 +10,7 @@ import kotlinx.serialization.json.Json
 class BankRepository(private val context: Context){
 
     private fun readData(fileName:String)= context.assets.open(fileName).bufferedReader().use { it.readText() }
-    fun getTransfer()= Json.decodeFromString<List<Transfer>>(readData(""))
+    fun getTransfer()= Json.decodeFromString<List<Transfer>>(readData("transfers.json"))
+    fun getBeneficiares()=  Json.decodeFromString<List<Beneficiary>>(readData("beneficiaries.json"))
+    fun getAccounts()=  Json.decodeFromString<List<Account>>(readData("accounts.json"))
 }

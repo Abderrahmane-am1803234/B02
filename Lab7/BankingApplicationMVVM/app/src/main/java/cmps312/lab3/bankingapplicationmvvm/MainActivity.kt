@@ -12,8 +12,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import cmps312.lab3.bankingapplicationmvvm.common.getCurrentRoute
+import cmps312.lab3.bankingapplicationmvvm.model.BankingViewModel
 import cmps312.lab3.bankingapplicationmvvm.ui.theme.BankingApplicationMVVMTheme
-import cmps312.lab3.bankingapplicationmvvm.views.BankingViewModel
 import cmps312.lab3.bankingapplicationmvvm.views.MyNavHost
 
 
