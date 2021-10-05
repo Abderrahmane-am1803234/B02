@@ -1,5 +1,6 @@
 package cmps312.lab3.covidtrackerapp
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
@@ -45,18 +46,24 @@ fun covidStatScreen(){
 }
 @Composable
 fun CovidStatList(covidStatsList:List<CovidStat>, searchText:String, sortBy: SortBy){
+
     var filteredCovidStatsList: List<CovidStat> = search(covidStats = covidStatsList, searchText = searchText)
 filteredCovidStatsList= Sort(covidStats = filteredCovidStatsList, sortBy = sortBy )
-    LazyColumn(){
-        item {
-          //  SearchBox(searchText = searchText, onSearchTextChange = {})
+
+    Column() {
+        //SearchBox(searchText = searchText, onSearchTextChange = {searchText = it })
+
+        LazyColumn() {
+            item {
+                //  SearchBox(searchText = searchText, onSearchTextChange = {})
 
 
-        }
+            }
 
 
-        items(filteredCovidStatsList){
-            CovidCard( it)
+            items(filteredCovidStatsList) {
+                CovidCard(it)
+            }
         }
     }
 }
