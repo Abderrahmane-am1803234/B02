@@ -26,27 +26,32 @@ fun covidStatScreen(){
     Scaffold (
         topBar = {
             TopBar(
-                searchText = searhText,
+                //searchText = searhText,
                 onSearchTextChange ={searhText=it},onSortChange = {sortBy=it}
 
             )
 
+        },content = {
+            Column() {
+
+
+                SearchBox(searchText = searhText, onSearchTextChange = { searhText = it })
+                CovidStatList(
+                    CovidStatRepository.initCovidStat(LocalContext.current),
+                    searchText = searhText,
+                    sortBy = sortBy
+                )
+            }
         }
 
-    ){
-       // val staduimList = StadiumRepository.getStadiums(LocalContext.current)
-      //  StadiumList( staduimList,searText,type,sortBy)
-        //SearchBox(searchText = searhText, onSearchTextChange = {searhText=it})
-        CovidStatList( CovidStatRepository.initCovidStat(LocalContext.current),searchText = searhText,sortBy = sortBy)
-    }
-
+    )
 
 
 
 }
 @Composable
 fun CovidStatList(covidStatsList:List<CovidStat>, searchText:String, sortBy: SortBy){
-
+//    covidStatsList:List<CovidStat>, searchText:String, sortBy: SortBy
     var filteredCovidStatsList: List<CovidStat> = search(covidStats = covidStatsList, searchText = searchText)
 filteredCovidStatsList= Sort(covidStats = filteredCovidStatsList, sortBy = sortBy )
 

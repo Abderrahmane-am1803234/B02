@@ -9,7 +9,7 @@ import cmps312.lab3.covidtrackerapp.SortBy
 @Composable
 
 fun TopBar(
-    searchText: String,
+   // searchText: String,
 
     onSearchTextChange: (String) -> Unit, onSortChange: (SortBy) -> Unit
    // stadiumStaustType: String,onStadiumStaustTypeChange:(String)->Unit,
@@ -21,7 +21,7 @@ fun TopBar(
 //        "Major renovation")
 
     TopAppBar(title = { Text(text = "") }, actions = {
-        SearchBox(searchText = searchText, onSearchTextChange = onSearchTextChange)
+       // SearchBox(searchText = searchText, onSearchTextChange = onSearchTextChange)
         SortBy(onSortChange = onSortChange)
        // DropDown(options = types, selectedOption = stadiumStaustType, onselectedOptionChange =onStadiumStaustTypeChange )
       //  Sort(onSortChange = onSortChange)

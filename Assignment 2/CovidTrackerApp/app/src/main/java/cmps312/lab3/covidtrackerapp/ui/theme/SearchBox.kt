@@ -16,8 +16,9 @@ import cmps312.lab3.covidtrackerapp.CovidStat
 @Composable
 fun SearchBox(searchText:String,onSearchTextChange:(String)->Unit ){
 
-    TextField(value = searchText, onValueChange = onSearchTextChange
-
+    TextField(value = searchText, onValueChange = {onSearchTextChange(it)}
+        , modifier = Modifier
+            .fillMaxWidth()
         ,leadingIcon = {
 
             Icon( Icons.Default.Search, contentDescription = "search icon")
