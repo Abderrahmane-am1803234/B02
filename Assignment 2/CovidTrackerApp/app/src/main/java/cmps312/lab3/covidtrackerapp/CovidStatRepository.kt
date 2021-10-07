@@ -13,7 +13,6 @@ object CovidStatRepository {
 
     fun initCovidStat(context: Context):List<CovidStat>{
 
-       // Use 'ignoreUnknownKeys = true' in 'Json {}' builder to ignore unknown keys.
      if ( covidStats.isEmpty()){
             val covidStatJson =
                 context.assets.open("covid-data.json")

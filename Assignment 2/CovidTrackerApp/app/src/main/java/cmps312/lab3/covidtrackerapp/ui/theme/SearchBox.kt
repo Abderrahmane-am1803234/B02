@@ -20,7 +20,7 @@ fun SearchBox(searchText:String,onSearchTextChange:(String)->Unit ){
 
     TextField(value = searchText, onValueChange = {onSearchTextChange(it)}
         , modifier = Modifier
-            .fillMaxWidth()//.height(70.dp)
+            .fillMaxWidth()
         ,leadingIcon = {
             if(searchText.isEmpty() && searchText.isBlank())
             Icon( Icons.Default.Search, contentDescription = "search icon")
@@ -48,7 +48,7 @@ fun search(covidStats:List<CovidStat>, searchText:String)=
     else{
 
         covidStats.filter {
-            it.country.contains(searchText,ignoreCase = true)   //ignore character case
+            it.country.contains(searchText,ignoreCase = true)
 
 
 

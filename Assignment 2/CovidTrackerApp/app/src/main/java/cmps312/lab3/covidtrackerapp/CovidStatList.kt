@@ -6,8 +6,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import cmps312.lab3.covidtrackerapp.ui.theme.SearchBox
 import cmps312.lab3.covidtrackerapp.ui.theme.TopBar
 import cmps312.lab3.covidtrackerapp.ui.theme.search
@@ -31,6 +34,14 @@ fun covidStatScreen(){
                 onSortChange = {sortBy=it}
 
             )
+            Column {
+                Text(
+                    text = "CovidTracker",
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,color = Color.White
+                )
+                Text(text = "World Statistics", fontSize = 15.sp ,color = Color.LightGray)
+            }
 
         },content = {
             Column() {
