@@ -23,129 +23,267 @@ import androidx.compose.ui.unit.sp
 import kotlin.math.roundToInt
 
 @Composable
-fun CovidCard(covidStat:CovidStat){
+fun CovidCard(covidStat:CovidStat) {
     val context = LocalContext.current
- //   val populationImage =R.drawable.population
+    //   val populationImage =R.drawable.population
 
-    val populationImage = context.resources.getIdentifier(R.drawable.population.toString(),"drawable",context.packageName)
+    val populationImage = context.resources.getIdentifier(
+        R.drawable.population.toString(),
+        "drawable",
+        context.packageName
+    )
 
-   // val context = LocalContext.current
-   // val imagePop = context.resources.getIdentifier(covidStat.population.toString(),"drawable",context.packageName)
+    // val context = LocalContext.current
+    // val imagePop = context.resources.getIdentifier(covidStat.population.toString(),"drawable",context.packageName)
     // painterResource(id = R.drawable.population)
-val countryImage = context.resources.getIdentifier(R.drawable.country.toString(),"drawable",context.packageName)
+    val countryImage = context.resources.getIdentifier(
+        R.drawable.country.toString(),
+        "drawable",
+        context.packageName
+    )
     //R.drawable.country
-   // painterResource(id = R.drawable.country)
-  //  context.resources.getIdentifier(R.drawable.country.toString(),"drawable",context.packageName)
-val activeCasesImage =context.resources.getIdentifier(R.drawable.activecases.toString(),"drawable",context.packageName)
+    // painterResource(id = R.drawable.country)
+    //  context.resources.getIdentifier(R.drawable.country.toString(),"drawable",context.packageName)
+    val activeCasesImage = context.resources.getIdentifier(
+        R.drawable.activecases.toString(),
+        "drawable",
+        context.packageName
+    )
     //R.drawable.activecases
-  //  painterResource(id = R.drawable.activecases)
-    
-val deadImage =   context.resources.getIdentifier(R.drawable.dead.toString(),"drawable",context.packageName)
+    //  painterResource(id = R.drawable.activecases)
 
-   // R.drawable.dead
+    val deadImage =
+        context.resources.getIdentifier(R.drawable.dead.toString(), "drawable", context.packageName)
+
+    // R.drawable.dead
     //painterResource(id = R.drawable.dead)
-val recoveredImage =  context.resources.getIdentifier( R.drawable.recovered.toString(),"drawable",context.packageName)
+    val recoveredImage = context.resources.getIdentifier(
+        R.drawable.recovered.toString(),
+        "drawable",
+        context.packageName
+    )
 
-   // R.drawable.recovered
-   // painterResource(id = R.drawable.recovered)
-    
-    Card(
-        Modifier
-
-
-            .padding(3.dp)
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(19.dp))
-            .size(230.dp),
-        backgroundColor = Color.Yellow,
-
-
-        elevation = 15.dp
-
+    // R.drawable.recovered
+    // painterResource(id = R.drawable.recovered)
+    Box(
+        modifier = Modifier
     ) {
-        
-        Column(
+        Card(
             Modifier
                 .fillMaxWidth()
-                .padding(3.dp),verticalArrangement = Arrangement.spacedBy(15.dp)) {
-            
-            Row(
+                .clip(RoundedCornerShape(19.dp))
+                .padding(5.dp)
+            //.size(230.dp)
+            ,
+            /// backgroundColor = Color.Yellow,
+
+
+            elevation = 5.dp
+
+        ) {
+
+            Column(
                 Modifier
                     .fillMaxWidth()
-                    .padding(0.dp)
+                    .padding(3.dp), verticalArrangement = Arrangement.spacedBy(15.dp)
             ) {
 
-
-
-                    Image(painter = painterResource(id = countryImage), contentDescription = "country image",Modifier.height(50.dp))
-                    Column() {
-                        Text(text = "Country",Modifier.padding(2.dp) ,fontSize = 17.sp,color = Color.Gray)
-                        Text(text = "${covidStat.country}",color = Color.Gray,fontSize = 28.sp,fontWeight = FontWeight.Bold
-                        )
-
-                    }
-                }
-            Column(verticalArrangement = Arrangement.spacedBy(15.dp),modifier = Modifier.fillMaxWidth()) {
-
                 Row(
                     Modifier
-                        .padding(2.dp)
-                        .fillMaxWidth(),horizontalArrangement = Arrangement.spacedBy(19.dp)) {
+                        .fillMaxWidth()
+                      //  .padding(0.dp)
+                ) {
 
 
-
-
-                    Image(painter = painterResource(id = populationImage), contentDescription = "population image",Modifier.height(50.dp))
+                    Image(
+                        painter = painterResource(id = countryImage),
+                        contentDescription = "country image",
+                        Modifier.height(50.dp)
+                    )
                     Column() {
-                        Text(text = "Population",color = Color.Gray)
-                      //  ${String.format("%.2f",bmi).toDouble()
-                      var oo=  covidStat.population
-                       // var s = String.
-                        //val convert=
-                        //{String.format("%.1f",covidStat.population.toString().take(3).toDouble()
-                       // "${covidStat.population.toString().take(3) }M"
-                        Text(text = "%.1fM".format(covidStat.population.div(1000000.0)),
-                            color = Color.Gray,fontSize = 22.sp,fontWeight = FontWeight.Bold
+                        Text(
+                            text = "Country",
+                            Modifier.padding(2.dp),
+                            fontSize = 17.sp,
+                            color = Color.Gray
+                        )
+                        Text(
+                            text = "${covidStat.country}",
+                            color = Color.Gray,
+                            fontSize = 28.sp,
+                            fontWeight = FontWeight.Bold
                         )
 
                     }
-                    Image(painter = painterResource(id = activeCasesImage), contentDescription = "active cases mage",Modifier.height(50.dp))
-                    Column() {
-                        Text(text = "Active Cases",color = Color.Gray)
-                        Text( text = "%.1fK".format(covidStat.activeCases.div(1000.0)),
-                            color = Color.Gray,fontSize = 22.sp,fontWeight = FontWeight.Bold
+                }
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(25.dp),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+
+                    Row(
+                        Modifier
+                            //.padding(2.dp)
+                            .fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(10.dp)
+                    ) {
+
+
+                        Image(
+                            painter = painterResource(id = populationImage),
+                            contentDescription = "population image",
+                            Modifier.height(60.dp)
                         )
+                        Column() {
+                            Text(text = "Population", color = Color.Gray)
+                            //  ${String.format("%.2f",bmi).toDouble()
+                            // var oo=  covidStat.population
+                            // var s = String.
+                            //val convert=
+                            //{String.format("%.1f",covidStat.population.toString().take(3).toDouble()
+                            // "${covidStat.population.toString().take(3) }M"
+                            if (covidStat.population > 1000000000) {
+                                Text(
+                                    text = "%.1fB".format(covidStat.population.div(1000000000.0)),
+                                    color = Color.Gray,
+                                    fontSize = 22.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+
+                            } else {
+                                Text(
+                                    text = "%.1fM".format(covidStat.population.div(1000000.0)),
+                                    color = Color.Gray,
+                                    fontSize = 22.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
+//                        Text(text = "%.1fM".format(covidStat.population.div(1000000.0)),
+//                            color = Color.Gray,fontSize = 22.sp,fontWeight = FontWeight.Bold
+//                        )
+
+                        }
+                        Spacer(modifier = Modifier.width(50.dp))
+                        Box(Modifier.background(Color.LightGray)) {
+
+
+                            Image(
+                                painter = painterResource(id = activeCasesImage),
+                                contentDescription = "active cases mage",
+                                Modifier.height(60.dp)
+                            )
+                        }
+                        Column() {
+                            Text(text = "Active Cases", color = Color.Gray)
+                            when {
+                                covidStat.activeCases > 1000000 -> {
+                                    Text(
+                                        text = "%.1fM".format(covidStat.activeCases.div(1000000.0)),
+                                        color = Color.Gray,
+                                        fontSize = 22.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                }
+                                covidStat.activeCases > 1000 -> {
+                                    Text(
+                                        text = "%.1fk".format(covidStat.activeCases.div(1000.0)),
+                                        color = Color.Gray,
+                                        fontSize = 22.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+
+                                }
+                                else -> {
+                                    Text(
+                                        text = "${covidStat.activeCases}",
+                                        color = Color.Gray,
+                                        fontSize = 22.sp,
+                                        fontWeight = FontWeight.Bold
+                                    )
+                                }
+                            }
+//                        Text(
+//                            text = "%.1fK".format(covidStat.activeCases.div(1000.0)),
+//                            color = Color.Gray, fontSize = 22.sp, fontWeight = FontWeight.Bold
+//                        )
+
+                        }
+
+                    }
+                    Row(
+                        Modifier
+                            .padding(4.dp)
+                            .fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(11.dp)
+                    ) {
+
+                        Image(
+                            painter = painterResource(id = deadImage),
+                            contentDescription = " dead image",
+                            Modifier.height(60.dp)
+                        )
+                        Column() {
+                            Text(text = "Total Death", color = Color.Gray)
+                            if (covidStat.totalDeaths > 100000 || covidStat.totalDeaths > 1000) {
+                                Text(
+                                    text = "%.1fK".format(covidStat.totalDeaths.div(1000.0)),
+                                    color = Color.Gray,
+                                    fontSize = 22.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            } else {
+                                Text(
+                                    text = "${covidStat.totalDeaths}",
+                                    color = Color.Gray,
+                                    fontSize = 22.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
+//                        Text(
+//                            text = "%.1fK".format(covidStat.totalDeaths.div(1000.0)),
+//                            color = Color.Gray,
+//                            fontSize = 22.sp,
+//                            fontWeight = FontWeight.Bold
+//                        )
+
+                        }
+                        Spacer(modifier = Modifier.width(50.dp))
+
+                        Image(
+                            painter = painterResource(id = recoveredImage),
+                            contentDescription = "recovered image",
+                            Modifier.height(60.dp)
+                        )
+                        Column() {
+                            Text(text = "Total Recovered", color = Color.Gray)
+                            if (covidStat.totalRecovered > 1000000) {
+                                Text(
+                                    text = "%.1fM".format(covidStat.totalRecovered.div(1000000.0)),
+                                    color = Color.Gray,
+                                    fontSize = 22.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            } else {
+                                Text(
+                                    text = "%.1fk".format(covidStat.totalRecovered.div(1000.0)),
+                                    color = Color.Gray,
+                                    fontSize = 22.sp,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
+//                        Text(
+//                            text = "%.1fM".format(covidStat.totalRecovered.div(1000.0)),
+//                            color = Color.Gray,
+//                            fontSize = 22.sp,
+//                            fontWeight = FontWeight.Bold
+//                        )
+
+                        }
 
                     }
 
                 }
-                Row(
-                    Modifier
-                        .padding(4.dp)
-                        .fillMaxWidth(),horizontalArrangement = Arrangement.spacedBy(19.dp)) {
 
-                    Image(painter = painterResource(id = deadImage), contentDescription = " dead image",Modifier.height(50.dp))
-                    Column() {
-                        Text(text = "Total Death",color = Color.Gray)
-                        Text(text = "%.1fK".format(covidStat.totalDeaths.div(1000.0)),color = Color.Gray,fontSize = 22.sp,fontWeight = FontWeight.Bold
-                        )
-
-                    }
-                    Image(painter = painterResource(id = recoveredImage), contentDescription = "recovered image",Modifier.height(50.dp))
-                    Column() {
-                        Text(text = "Total Recovered",color = Color.Gray)
-                        Text(text = "%.1fK".format(covidStat.totalRecovered.div(1000.0)),color = Color.Gray,fontSize = 22.sp,fontWeight = FontWeight.Bold
-                        )
-
-                    }
-
-                }
 
             }
-
-
-            
-        }
 
 //        Row() {
 //            Image(painter = populationImage, contentDescription = "pop pic",
@@ -170,12 +308,10 @@ val recoveredImage =  context.resources.getIdentifier( R.drawable.recovered.toSt
 //
 //            }
 //        }
+        }
     }
-
-
-
-
 }
+
 //@Preview
 //@Composable
 //

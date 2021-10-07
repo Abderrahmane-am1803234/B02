@@ -10,5 +10,5 @@ data class CovidStat(
     var totalDeaths: Int,
     var totalRecovered:Int,
     var activeCases:Int,
-    var population: Double,
+    var population: Int,
 )

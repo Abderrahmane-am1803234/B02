@@ -27,7 +27,8 @@ fun covidStatScreen(){
         topBar = {
             TopBar(
                 //searchText = searhText,
-                onSearchTextChange ={searhText=it},onSortChange = {sortBy=it}
+                //onSearchTextChange ={searhText=it},
+                onSortChange = {sortBy=it}
 
             )
 

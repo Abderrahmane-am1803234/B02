@@ -11,7 +11,8 @@ import cmps312.lab3.covidtrackerapp.SortBy
 fun TopBar(
    // searchText: String,
 
-    onSearchTextChange: (String) -> Unit, onSortChange: (SortBy) -> Unit
+   // onSearchTextChange: (String) -> Unit,
+    onSortChange: (SortBy) -> Unit
    // stadiumStaustType: String,onStadiumStaustTypeChange:(String)->Unit,
   //  onSortChange: (SortBy) -> Unit
 ){

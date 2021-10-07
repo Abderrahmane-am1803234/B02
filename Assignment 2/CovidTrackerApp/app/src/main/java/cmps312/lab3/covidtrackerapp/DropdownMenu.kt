@@ -28,7 +28,13 @@ fun DropDown(options:List<String>,selectedOption:String, onselectedOptionChange 
 
         }
 
-        DropdownMenu(expanded = expanded, onDismissRequest = {expanded=false }) {
+        DropdownMenu(expanded = expanded, onDismissRequest = {expanded=false }
+
+               , modifier = Modifier
+                .fillMaxWidth()
+                .background(
+                Color.Gray)
+        ) {
 
 
             options.forEach {
@@ -36,7 +42,10 @@ fun DropDown(options:List<String>,selectedOption:String, onselectedOptionChange 
                 DropdownMenuItem(onClick = { expanded=false
 
                     onselectedOptionChange(option)
-                }) {
+                }, modifier = Modifier
+                    .fillMaxWidth()
+                    .background(
+                        Color.Gray)) {
                     Text(text=option)
                 }
 

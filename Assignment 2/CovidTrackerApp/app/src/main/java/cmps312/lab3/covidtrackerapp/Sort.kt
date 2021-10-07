@@ -54,9 +54,9 @@ fun Sort(covidStats:List<CovidStat>, sortBy:SortBy)=
 
     when(sortBy){
         SortBy.COUNTRY -> covidStats.sortedBy { it.country}
-        SortBy.ACTIVECASES -> covidStats.sortedBy { it.activeCases  }
-        SortBy.TOTALDEATHS ->covidStats.sortedBy { it.totalDeaths }
-     SortBy.POPULATION -> covidStats.sortedBy { it.population }
+        SortBy.ACTIVECASES -> covidStats.sortedByDescending { it.activeCases  }
+        SortBy.TOTALDEATHS ->covidStats.sortedByDescending { it.totalDeaths }
+     SortBy.POPULATION -> covidStats.sortedByDescending { it.population }
 
 
     }

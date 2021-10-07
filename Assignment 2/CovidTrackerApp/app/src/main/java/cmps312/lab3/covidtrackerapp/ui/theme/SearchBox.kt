@@ -1,6 +1,7 @@
 package cmps312.lab3.covidtrackerapp.ui.theme
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.TextField
@@ -10,6 +11,7 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.unit.dp
 import cmps312.lab3.covidtrackerapp.CovidStat
 
 
@@ -18,9 +20,9 @@ fun SearchBox(searchText:String,onSearchTextChange:(String)->Unit ){
 
     TextField(value = searchText, onValueChange = {onSearchTextChange(it)}
         , modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxWidth()//.height(70.dp)
         ,leadingIcon = {
-
+            if(searchText.isEmpty() && searchText.isBlank())
             Icon( Icons.Default.Search, contentDescription = "search icon")
         },
         trailingIcon = {
@@ -30,7 +32,7 @@ fun SearchBox(searchText:String,onSearchTextChange:(String)->Unit ){
                 }
             }
         },singleLine = true,
-        shape = RectangleShape
+
 
 
 
