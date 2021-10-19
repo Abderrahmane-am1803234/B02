@@ -13,13 +13,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import cmps312.lab3.mvvmpractice.Screen
 import cmps312.lab3.mvvmpractice.viewmodel.GradeViewModel
 
 @Composable
-fun Add(onAddStudent: () -> Unit) {
+fun Add(onAddStudent:()->Unit) {
 
     val gradeViewModel =
         viewModel<GradeViewModel>(viewModelStoreOwner = LocalContext.current as ComponentActivity)
@@ -81,6 +82,7 @@ fun Add(onAddStudent: () -> Unit) {
                 }
             }
 
+
             onAddStudent()
 
         }) {
@@ -90,4 +92,9 @@ fun Add(onAddStudent: () -> Unit) {
     }
 
 
+}
+@Preview
+@Composable
+fun AddPr() {
+//    Add()
 }
