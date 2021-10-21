@@ -125,6 +125,7 @@ fun AddEmployee(onNavigate:()->Unit) {
 
         Spacer(modifier = Modifier.height(13.dp))
         Button(onClick = {
+
             val newEmployee =Employee(name,position,salary,department)
             employeeViewModel.addEmployee(newEmployee)
 
